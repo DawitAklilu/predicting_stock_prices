@@ -21,19 +21,10 @@ GENE_OPTION = ['x', 'pow(x, 2)', 'pow(x, 3)'] + [str(x) for x in range(1, 20)]
 OPERATIONS = ['+', '-', '*', '/']
 # hold five best solutions in the hall of fame in descending order or best first
 HALL_OF_FAME = [-float('inf')] * 5 
-
-        
-# elite selection
-def selection_elite(population: list, fitness: callable, truncation_percent: float=0.1, elites: int=5) -> list:
-    pass
-    
-# get top x of the population
-def get_top_n(array: list, n: int) -> list:
-    """Not pure will modify the array"""
-    pass
     
 # tournament selection
 def selection_tournament(population: list, elite_number: int=2, tournament_size: int=3) -> list:
+    """Select from the population using the popular tournament strategy"""
     if elite_number > len(population):
         raise Exception('selected elites must be less than population size')
     heapq.heapify(population)
@@ -55,6 +46,7 @@ def selection_tournament(population: list, elite_number: int=2, tournament_size:
     return selected_population
     
 def main():
+    """Test if the functions and classes work together"""
     df = pd.read_csv('../data/GOOG_reversed.csv')
     df = df.iloc[500:520, :]
     print(df.head())
@@ -79,8 +71,6 @@ def main():
         
         # get num iterations to run
         num_generations = 10
-        #if len(sys.argv) > 1:
-        #    num_generations = int(sys.argv[1])*/
         for _ in range(num_generations):
             population = selection_tournament(population, tournament_size=5)
             
@@ -109,8 +99,6 @@ def main():
         
         # get num iterations to run
         num_generations = 10
-        #if len(sys.argv) > 1:
-        #    num_generations = int(sys.argv[1])*/
         for _ in range(num_generations):
             population = selection_tournament(population, tournament_size=5)
             
@@ -139,8 +127,6 @@ def main():
         
         # get num iterations to run
         num_generations = 10
-        #if len(sys.argv) > 1:
-        #    num_generations = int(sys.argv[1])*/
         for _ in range(num_generations):
             population = selection_tournament(population, tournament_size=5)
             
@@ -179,27 +165,6 @@ def main():
     print(f'Median difference: {statistics.median(percentage_off_3)}')
     print(f'Standard deviation of differences: {statistics.stdev(percentage_off_3)}')
     print(predicted_directions_3)
-        
-    #y_vals = [253.92, 260.79, 265.44, 276.2, 279.43, 272.23, 273.78, 272.29, 277.66]  #, 280.57]
-    #full_y = [253.92, 260.79, 265.44, 276.2, 279.43, 272.23, 273.78, 272.29, 277.66, 280.57]
-    """lower_bound, upper_bound = min(y_vals), max(y_vals)
-    x_vals = [i + 1 for i in range(len(y_vals))]
-    fitness = Fitness(y_vals)
-    population = [Individual2(fitness.score, param_range=[(lower_bound, upper_bound), (-5, 5)], sigma=2, mutation_rate=0.4, crossover_rate=0.5) for _ in range(100)]
-    
-    # get num iterations to run
-    num_generations = 50
-    if len(sys.argv) > 1:
-        num_generations = int(sys.argv[1])
-    for _ in range(num_generations):
-        print('=========Iteration:', _)
-        population = selection_tournament(population)
-    for solution in sorted(population)[:3]:
-        print('solution:', solution)
-        print([eval(repr(solution)) for x in x_vals])
-        print(full_y)
-        print(fitness.score(solution))"""
-    
 
 if __name__ == '__main__':
     main()
