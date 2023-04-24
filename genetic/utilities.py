@@ -1,10 +1,14 @@
+##############################
 # Utility functions
+##############################
+
 # standard library
 import typing
 
 # 3rd party
 import pandas as pd
 import numpy as np
+
 
 def get_indexes(data: iter, num_splits: int=3, num_days: int=39, min_index: int=1000) -> typing.List[tuple]:
     """Get a range of indexes depending on the data"""
