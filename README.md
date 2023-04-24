@@ -10,6 +10,7 @@ We explored four different models to find the most effective solution.
 * RNN with LSTM - Better_stock_code.ipynb
 * Logistic Regression - Final_model_Christian Anovert.ipynb
 * GP Model - genetic/gplearn_results.ipynb
+
 To look at the results, navigate to each notebook file and open in your favorite IDE.
 
 # Contributions
