@@ -6,7 +6,7 @@ Can you predict better than a coin flip (in other words 50/50) whether tomorrowâ
 
 # Usage
 We explored four different models to find the most effective solution.
-* SVM Model - data/gathering_data.ipynb
+* SVM Model - data/Direction.ipynb
 * RNN with LSTM - Better_stock_code.ipynb
 * Logistic Regression - Final_model_Christian Anovert.ipynb
 * GP Model - genetic/gplearn_results.ipynb
